@@ -1,0 +1,56 @@
+User Manual
+
+Step(1)-NLTK Data (punkt, stopwords, wordnet) များကို Download ဆွဲပါ။
+nltk.download('punkt')
+nltk.download('punkt_tab')
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+Step(2)-ပရိုဂရမ်ထဲတွင် Dataset ကို Google Drive link မှတစ်ဆင့် အလိုအလျောက် ချိတ်ဆက်ထားပြီး ဖြစ်ပါသည်။pd.read_csv ပါဝင်သော Cell ကို Run လိုက်ပါက Dataset ထဲရှိ Column အမည်များကို မြင်တွေ့ရမည် ဖြစ်သည်။
+
+Step(3)-deep-translator library ကို Install လုပ်ပါ။ pip install deep-translator
+
+Step(4)-text-blob library ကို Install လုပ်ပါ။ pip install textblob
+(Note:TextBlob သည် Colab တွင် Pre-installed ပါဝင်ပြီးသားဖြစ်သော်လည်း Jupyter Notebook တွင် Run ပါက Install လုပ်ရန် လိုအပ်ပါသည်။)
+
+Step(5)-seaborn library ကို Install လုပ်ပါ။ pip install seaborn
+(Note: Seaborn သည် Colab တွင် Pre-installed ပါဝင်ပြီးသားဖြစ်သော်လည်း Jupyter Notebook တွင် Run ပါက Install လုပ်ရန် လိုအပ်ပါသည်။)
+
+Step(5)-စာသားများကို သန့်စင်ရန် preprocess function ကို Run ပါ။
+
+
+Step(6)-TF-IDF Vectorizer နှင့် Logistic Regression မော်ဒယ်ကို လေ့ကျင့်ပေးသည့် Cell များကို အစဉ်လိုက် Run ပေးပါ။
+
+Step(6)
+-သရော်စာ (Sarcasm) စစ်ဆေးပေးမည့် detect_sarcasm function ကို Run ပါ။
+-ဌာနအလိုက်၊ ဘာသာရပ်အလိုက် Ranking ထုတ်ပေးမည့် get_course_ranking နှင့် Analytics function များကို Run ပါ။
+-Sentiment ကို အလိုအလျောက် ခန့်မှန်းပေးမည့် predict_sentiment_auto function ကို Run ပါ။
+
+
+Step(6)-Gradio code Cell ကို Run ပါ။
+———————————————————————————————————————————————
+User Manual
+
+၁။ ကျောင်းသားများ၏ Feedback ကို စစ်ဆေးခြင်း (Prediction Tab)
+ကျောင်းသားတစ်ယောက်ချင်းစီရဲ့ မှတ်ချက်တွေကို စစ်ဆေးဖို့အတွက် ဖြစ်ပါတယ်။
+	•	အဆင့် ၁: Department (ဌာန) နှင့် Subject (ဘာသာရပ်) ကို ရွေးချယ်ပါ။
+	•	အဆင့် ၂: Input Feedback အကွက်ထဲတွင် ကျောင်းသားပြောထားသော စာသားကို ရိုက်ထည့်ပါ (မြန်မာ/အင်္ဂလိပ် နှစ်မျိုးလုံး ရပါတယ်။)
+	•	အဆင့် ၃: 🚀 ရလဒ်စစ်ဆေးမည် ခလုတ်ကို နှိပ်ပါ။
+	•	ရလဒ်: စနစ်မှ ထိုစာသားသည် အကောင်း (Positive)၊ အဆိုး (Negative) သို့မဟုတ် ကြားနေ (Neutral) ဖြစ်ကြောင်း ခွဲခြားပေးပါလိမ့်မည်။ ထို့အပြင် မည်သည့်အကြောင်းအရာ (ဥပမာ - ဆရာ၊ သင်ကြားရေး၊ အဆောင်) ကို ပြောနေခြင်းဖြစ်ကြောင်းကိုလည်း Category ခွဲပေးပါမည်။
+
+၂။ ဘာသာရပ်အလိုက် အဆင့်သတ်မှတ်ချက် ကြည့်ရှုခြင်း (Course Ranking Tab)
+မည်သည့်ဘာသာရပ် သို့မဟုတ် ဌာနက သင်ကြားရေးအကောင်းဆုံးလဲဆိုတာကို ကြည့်နိုင်ပါတယ်။
+	•	Radio Button: "Department" သို့မဟုတ် "Subject" ကို ပြောင်းလဲရွေးချယ်နိုင်ပါတယ်။
+	•	အရည်အသွေး (%): ကျောင်းသားတွေရဲ့ စိတ်ကျေနပ်မှုအပေါ် မူတည်ပြီး တွက်ချက်ထားတဲ့ ရမှတ်ဖြစ်ပါတယ်။ ရမှတ်အများဆုံး ဘာသာရပ်က Rank 1 အနေနဲ့ အပေါ်ဆုံးမှာ ရှိနေပါလိမ့်မယ်။
+
+၃။ ခြုံငုံသုံးသပ်ချက် ဇယားများ ကြည့်ရှုခြင်း (Student Pulse Tab)
+Data အားလုံးကို Chart တွေနဲ့ တစ်စုတစ်စည်းတည်း ကြည့်ဖို့အတွက် ဖြစ်ပါတယ်။
+	•	Bar Chart: ဌာနအလိုက် အကောင်းမြင်မှုနဲ့ အဆိုးမြင်မှု အရေအတွက်ကို နှိုင်းယှဉ်ပြသပေးပါတယ်။
+	•	Heatmap: အရောင်တွေနဲ့ ပြသပေးတဲ့ ဇယားဖြစ်ပါတယ်။ အစိမ်းရောင် များနေလျှင် စိတ်ကျေနပ်မှုကောင်းပြီး၊ အနီရောင် များနေလျှင် ထိုဘာသာရပ်ကို ပြန်လည်ပြုပြင်ရန် လိုအပ်ကြောင်း ပြသနေခြင်း ဖြစ်ပါတယ်။
+
+
+
+
+
+
+
